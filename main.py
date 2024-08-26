@@ -7,10 +7,12 @@ def add_to_list(numbers):
     liste.append(numbers)
 def random():
     global anzahl
+    global g
     #bestimmen wie viele nummern generiert werden sollen
     i1 = int(input("""willst du sleber eine range angeben[1], 
 oder willst du eine feste zahl angeben[2], 
 oder willst du standart zwischen 50-100 eine range haben?[3]?: """))
+
     if i1 == 1:
         rl1 = int(input("start deiner Range: "))
         rl2 = int(input("ende deiner Range:"))
@@ -26,20 +28,21 @@ oder willst du standart zwischen 50-100 eine range haben?[3]?: """))
     for _ in range(anzahl):
         n = r.randint(1,g)
         add_to_list(numbers=n)
-        
-    
+
 def main():
     #nummer generation starten
     random()
     print(liste)
     #nach zu suchender zahl fragen
-    i = int(input("welche zahl suchst du range=1-10?: "))
+    i = int(input(f"welche zahl suchst du range=1-{g}?: "))
+
     counter = 0
     #such loop starten
     for f in range(anzahl):
         f = f+1
         if liste[f] == i:
-            counter = counter+1
+            counter+=1
+
             print(f"die zahl {i} wurde an stelle {f} in der liste gefunden")
         else:
             pass
